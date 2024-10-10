@@ -1,7 +1,11 @@
 # Proposal for OCA specification governance
 Overlays Capture Architecture is a standardized language for describing data schemas.
+
 Overlays Capture Architecture is optimized for overlays, where the community can improve the functionalities of a schema to meet their needs while maintaining interoperability.
+
 OCA_bundles MAY be collected together with an OCA package and they can also exist independently.
+
+
 Figure: example OCA Package structure
  
 There are multiple levels of overlays that can be incorporated into OCA syntax, Community, Recognized and Core.
