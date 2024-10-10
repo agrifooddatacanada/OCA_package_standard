@@ -5,6 +5,7 @@ Overlays Capture Architecture is optimized for overlays, where the community can
 
 OCA_bundles MAY be collected together with an OCA package and they can also exist independently.
 
+![OCA package](https://github.com/carlyh-micb/OCA_package/blob/main/package.png)
 
 Figure: example OCA Package structure
  
