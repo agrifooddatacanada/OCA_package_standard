@@ -8,7 +8,7 @@ Overlays Capture Architecture is optimized for overlays, where the community can
 
 The OCA specification describes OCA_bundles which collect a capture base and associated overlays into a single object. OCA Package describes how additional overlays outside of the official specification can be added to an OCA Schema without altering the OCA_bundle object. OCA_bundles MAY be collected together within an OCA package and they can also exist independently.
 
-OCA Package exists as a JSON serialized version of [OCA specification v1.0.1](http://oca.colossi.network/specification/). It formalizes a way to develop, test, and publish overlays that are outside of the Core of the OCA specification and included in an OCA Package in Extensions.
+OCA Package formalizes a way to develop and publish overlays that are outside of the Core of the OCA specification and are included in an OCA Package in Extensions.
 
 ![OCA package](https://github.com/carlyh-micb/OCA_package/blob/main/package.png)
 
@@ -46,25 +46,26 @@ Community overlays are proposed to the OCA Package governance body for a change 
 HCF maintains the official implementation of working with OCA Core (OCA Repo). To become become part of the official OCA specification any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
 
 # OCA Package Design Requirements
-This section outlines the different sections of published documentation for each overlay. 
-
 1. Required and Community overlays MUST follow OCA Package Overlay Documentation Requirements when they are included in an OCA Package.
 2. Documentation for Required and Community overlays MUST be published publically. 
 3. Technical implementation of the Recognized and Community overlays is the responsibilities of the respective communities.
-4. SAID calculations of the OCA Package follow requirements documented in [OCA Specification](http://oca.colossi.network/specification/), which in term references an expired version of the [SAID specification](https://datatracker.ietf.org/doc/html/draft-ssmith-said). Until this documentation is updated, OCA Package SAID calculations will follow this article which fully [documents the process and design choices of the calculations of SAIDs](https://kentbull.com/2024/09/22/keri-series-understanding-self-addressing-identifiers-said/) and includes links to libraries implementing the SAID calculation which can be used by overlay developers. The author Kent Bull is officially contributing documentation to the [CESR specification](https://trustoverip.github.io/tswg-cesr-specification/) which is the origin of the SAID specification.
+4. SAID calculations of the OCA Package contents follow requirements documented in [OCA Specification](http://oca.colossi.network/specification/), which in term references an expired version of the [SAID specification](https://datatracker.ietf.org/doc/html/draft-ssmith-said). Until this documentation is updated, OCA Package SAID calculations will follow this article which fully [documents the process and design choices of the calculations of SAIDs](https://kentbull.com/2024/09/22/keri-series-understanding-self-addressing-identifiers-said/) and includes links to libraries implementing the SAID calculation which can be used by overlay developers. The author Kent Bull is officially contributing documentation to the [CESR specification](https://trustoverip.github.io/tswg-cesr-specification/) which is the origin of the SAID specification.
 5. Lexicographical sorting follows the requirements documented in section [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 
 ## OCA Package Syntax Requirements
-- OCA Package MUST include the following objects in this specific order:
+- OCA Package MUST include the following objects in this specific order (canonicalization):
 	- object information `d` and `type` in this order. `d` contains the SAID value of the fully canonicalized, JSON serialized OCA_package. The package MUST use Type="oca_package/1.0".
-	- `oca_bundle` which contains overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/).
-	- `Dependencies` which MAY contain additional oca_bundles that are referenced by `oca_bundle` and meet `oca_bundle` requirements.
-	- `Extensions` which contain Recognized and Community overlays which are ordered lexicographically according to the `d` attribute.
+	- `oca_bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/).
+	- `Dependencies` which MAY contain additional oca_bundles that are referenced by the OCA_package `oca_bundle` and meet the same `oca_bundle` requirements.
+	- `Presentations` which MAY contain Presentation overlays.
+	- `Extensions` which MAY contain Recognized and Community overlays which are ordered lexicographically according to the `d` attribute.
 - Recognized overlays MUST use Type= "recognized/overlay/name/vX.X" where name is the name of the overlay and versioning MUST follow semantic versioning recommendations.
 - Community overlays MUST use Type= "community/overlay/name/vX.X" where name is the name of the overlay and versioning MUST follow Semantic Versioning recommendations when part of the OCA Package.
+- Presentation overlays that follow the OCA Package Overlay Documentation Requirements and are for tasks associated with the presentation of data according to an OCA schema.
 
 
 ## OCA Package Overlay Documentation Requirements
+This section outlines the different sections of published documentation for each overlay. 
 1.	Description:
  - Summarize the functionality of the overlay, what needs the overlay is addressing and descriptions of components of the overlay. Any references to community standards belong in this section.
 2.	Example: 
@@ -72,7 +73,7 @@ This section outlines the different sections of published documentation for each
  - The capture_base SAID does not need to reference a specific capture_base but MUST be well formed. 
  - The capture_base example SAID is used in the calculations of the overlay SAID. 
  - The example MAY be formatted with line breaks and indentations for readability.
-3.	Canonicalization rules:
+3.	Canonicalization rules of overlay contents:
  - Canonicalization rules MUST be documented for all parts of the overlay indicating when insertion ordered or lexigraphical ordered. 
  - Overlays MUST have at a header at the beginning which contains: SAID (d), type, optional language, then capture base. This order is insertion ordered. `"d"="", "type"="", "language"="" (optional), "capture_base"=""`
  - If multiple languages are present within an overlay object, each language overlay MUST be ordered lexigraphically according to the language value.
