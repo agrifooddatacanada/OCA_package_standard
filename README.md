@@ -39,9 +39,6 @@ The oca_package is under the governance of the OCA Package governance body.
 
 The OCA Package governance body MUST maintain the official standard specification for oca_package and the OCA Package Design Requirements. OCA Recognized overlays and Community overlays MUST follow the OCA Package Design Requirements.
 
-## Technical Implementation of an OCA Package
-Technical implementation of the OCA package is outside of the scope of the OCA Package governance body. Communities are expected to develop their own implementations.
-
 ### Promotion of Overlays
 #### Promotion from Community to Recognized overlays: 
 Community overlays are first developed in the community and supported by specific use cases. Then, when popular enough, community overlays may be proposed to the OCA Package governance body as Recognized Overlays. Recognized overlays are accepted from the community when they follow the OCA Package Design Requirements.
@@ -50,6 +47,9 @@ Community overlays are proposed to the OCA Package governance body for a change 
 
 #### Promotion of overlays to official OCA Specification: 
 HCF maintains the official implementation the OCA specification. To become become part of the official OCA specification any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
+
+## Technical Implementation of an OCA Package
+Technical implementation of the OCA package is outside of the scope of the OCA Package governance body. Communities are expected to develop their own implementations.
 
 # OCA Package Design Requirements
 1. Required and Community overlays MUST follow OCA Package Overlay Documentation Requirements when they are included in an oca_package.
