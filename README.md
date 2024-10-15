@@ -1,46 +1,47 @@
-# Proposal for OCA specification governance
+# OCA Package
+
 Overlays Capture Architecture is a standardized language for describing data schemas.
 
 Overlays Capture Architecture is optimized for overlays, where the community can improve the functionalities of a schema to meet their needs while maintaining interoperability.
 
-OCA_bundles MAY be collected together with an OCA package and they can also exist independently.
+The OCA specification describes OCA_bundles which collect a capture base and associated overlays into a single object. OCA Package describes how additional overlays outside of the official specification can be added to an OCA Schema without altering the OCA_bundle object. OCA_bundles MAY be collected together within an OCA package and they can also exist independently.
+
+OCA Package exists as a JSON serialized version of [OCA specification v1.0.1](http://oca.colossi.network/specification/). It formalizes a way to develop, test, and publish overlays that are outside of the Core of the OCA specification.
 
 ![OCA package](https://github.com/carlyh-micb/OCA_package/blob/main/package.png)
 
 Figure: example OCA Package structure
  
-There are multiple levels of overlays that can be incorporated into OCA syntax, Community, Recognized and Core.
 
 # OCA Core overlays
-The overlays are contained in the oca_bundle object. There should be widest support for core overlays, they do not change frequently as they may introduce breaking changes, and any software which claims to support OCA MUST support all core overlays plus capture_base.
-Core overlays are governed by HCF, incorporated into OCA Repo implementation and include the OCA File documentation and support.
+The overlays are contained in the oca_bundle object of an OCA Package. These overlays are governed by the Human Colossus Foundation and documented into the official [OCA Specification](http://oca.colossi.network/specification/).
+Core overlays are governed by HCF and outside of the governance of OCA Package.
+
 OCA core overlays are the only overlays that can appear within the oca_bundle (in addition to capture_base). The SAID of the oca_bundle when calculated only includes capture_base and OCA core overlays. Dependencies also only include capture_base and OCA core overlays of respective oca_bundles.
-Overlays within the core are no longer individually versioned. They version together with each bundle specification release.
 
 # Extension overlays
-Extension overlays include Recognized overlays and Community overlays.
+Extension overlays include Recognized overlays and Community overlays. These overlays are outside of the governance of the Human Colossus Foundation and can be created by members of the community to meet their needs.
 
 ## Recognized Overlays
-Recognized overlays are governed by HCF which hosts the official source of overlay syntax and documentation. 
+Recognized overlays are governed by the OCA Package governance body which hosts the official source of overlay syntax and documentation.
 
 ## Community Overlays
-Community overlays are governed by their communities and outside of the governance of the oca-specification. However, when present in an oca package community overlays will have specific requirements. Community overlays should follow the OCA Overlay Design and Documentation Standard as best practice.
+Community overlays are governed by their respective communities. When present in an oca package community overlays MUST follow the OCA Overlay Design and Documentation Standard as best practice.
 
 Note that Community overlays can be a community of one individual which could be implemented in a single project and addressing a single need.
 
 # Promotion of Overlays
 ## Promotion from Community to Recognized: 
-Community overlays are first developed in the community and supported by specific use cases. Then, when popular enough, community overlays may be proposed to the OCA standard as Recognized Overlays. Recognized overlays are accepted from the community when they follow the OCA Overlay Design and Documentation Standard.
+Community overlays are first developed in the community and supported by specific use cases. Then, when popular enough, community overlays may be proposed to the OCA Package governance body as Recognized Overlays. Recognized overlays are accepted from the community when they follow the OCA Overlay Design and Documentation Standard.
 
-Community overlays are proposed to the DSWG for a change in status. The DSWG seeks input from the Technology Council on the suitability of the overlay. Approval to Recognized overlay is the resonsibility of the DSWG. The DSWG is responsible for the timely addition of the new Recognized overlay specification to the official standard with input from the Technology Council. 
+Community overlays are proposed to the OCA Package governance body for a change in status. Approval to Recognized overlay is the resonsibility of the OCA Package governance body. The OCA Package governance body is responsible for the timely addition of the new Recognized overlay specification to the official standard. 
 
 ## Promotion from Recognized to Core: 
-HCF maintains the official tool repository for working with OCA. They also maintain the official implementation of working with OCA Core (OCA Repo). To become a Core overlay, the Recognized overlay must be supported by the official HCF OCA Repo and follow the OCA Overlay Documentation Standard.
+HCF maintains the official implementation of working with OCA Core (OCA Repo). To become a Core overlay, any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
 
-Community overlays are proposed to the DSWG for a change in status. The DSWG together with the Technology Council approves the acceptance of the overlay as a Core overlay. The DSWG is responsible for the timely addition of the new Core overlay specification to the official standard with required approval from the Technology Council. 
 
 # OCA Standard Documentation
-The HCF MUST maintain the official standard specification for oca_bundle, oca_package and OCA Overlay Design and Documentation Standard. OCA Core overlays and Recognized overlays MUST follow the OCA Overlay Design and Documentation Standard. Community overlays MAY follow the OCA Overlay Design and Documentation Standard.
+The OCA Package governance body MUST maintain the official standard specification for oca_package and the OCA Overlay Design and Documentation Standard. OCA Recognized overlays MUST follow the OCA Overlay Design and Documentation Standard. Community overlays MAY follow the OCA Overlay Design and Documentation Standard.
 
 # OCA Capture Base 
 TODO Description of syntax of capture base.
