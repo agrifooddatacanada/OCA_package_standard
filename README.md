@@ -69,7 +69,7 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
  	- If multiple languages are present within an overlay object, each language overlay MUST be ordered lexigraphically according to the language value.
 	- Following the header all content MUST be ordered lexigraphically.
 - Recognized overlays MUST use Type= "recognized/overlay/name/vX.X" where name is the name of the overlay and versioning MUST follow semantic versioning recommendations.
-- Community overlays MUST use Type= "community/overlay/name/vX.X" where name is the name of the overlay and versioning MUST follow Semantic Versioning recommendations when part of the oca_package.
+- Community overlays MUST use Type= "community/community_name/overlay/name/vX.X" where name is the name of the overlay, community_name is the name of the community and versioning MUST follow Semantic Versioning recommendations when part of the oca_package.
 - Presentation overlays that follow the OCA Package Overlay Documentation Requirements and are for tasks associated with the presentation of data according to an OCA schema. TODO.
 
 
