@@ -81,7 +81,7 @@ This section outlines the different sections of published documentation for each
  - Provide at least one example of the overlay in fully canonicalized, serialized (in JSON) format including a correctly calculated SAID value. 
  - The capture_base SAID does not need to reference a specific capture_base but MUST be well formed. 
  - The capture_base example SAID is used in the calculations of the overlay SAID. 
- - The example MAY be formatted with line breaks and indentations for readability after the SAID has been calculated.
+ - The example MAY be formatted with line breaks and indentations, including reorganizing objects for readability after the SAID has been calculated.
 4.	Rules summary: 
  - Summarize all the requirements (MUST and MAY) for the overlay.
 5.	Test case: 
