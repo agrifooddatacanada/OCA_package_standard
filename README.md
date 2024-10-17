@@ -55,8 +55,8 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 ## OCA Package Syntax Requirements
 - oca_package MUST include the following objects in this specific order (canonicalization):
 	- The package MUST use type="oca_package/1.0".
-	- `oca_bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
-	- `dependencies` MAY contain additional oca_bundles that are referenced by the OCA_package `oca_bundle` and meet the same `oca_bundle` requirements.
+	- `oca_bundle` contains `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
+	- `oca_bundle` next contains `dependencies` which MAY contain additional oca_bundles that are referenced by the OCA_package `oca_bundle` and meet the same `oca_bundle` requirements.
 	- `extensions` MAY contain Recognized and Community overlays which are ordered lexicographically according to: [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 - Overlay contents MUST follow [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 - Recognized overlays MUST use type= "recognized/overlay/name/vX.X" where name is the name of the overlay and versioning MUST follow semantic versioning.
