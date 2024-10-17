@@ -47,8 +47,8 @@ HCF maintains the official implementation the OCA specification. To become becom
 Technical implementation of the OCA package is outside of the scope of the OCA Package governance body. Communities are expected to develop their own implementations.
 
 # OCA Package Design Requirements
-1. Required and Community overlays MUST follow OCA Package Overlay Documentation Requirements when they are included in an oca_package.
-2. Documentation for Required and Community overlays MUST be published publically. 
+1. Required and Community overlays MUST follow OCA Package Syntax Requirements
+2. Documentation for Required and Community overlays MUST be published publically and follow the OCA Package Overlay Documentation Requirements. 
 4. SAID calculations of the oca_package contents (excluding oca_bundle) follow requirements documented in [CESR Specification](https://weboftrust.github.io/ietf-cesr/draft-ssmith-cesr.html). This non-normative post [documents the process and design choices of the calculations of SAIDs](https://kentbull.com/2024/09/22/keri-series-understanding-self-addressing-identifiers-said/) and includes links to libraries implementing the SAID calculation which can be used by overlay developers. The author Kent Bull is officially contributing documentation to the ongoing work of the [latest CESR specification](https://trustoverip.github.io/tswg-cesr-specification/).
 5. Lexicographical sorting follows the requirements documented in section [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 
