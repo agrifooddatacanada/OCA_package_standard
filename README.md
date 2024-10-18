@@ -38,7 +38,7 @@ The OCA Package governance body MUST maintain the official standard specificatio
 #### Promotion from Community to Recognized overlays: 
 Community overlays are first developed in the community and supported by specific use cases. Then, when popular enough, community overlays may be proposed to the OCA Package governance body as Recognized Overlays. Recognized overlays are accepted from the community when they follow the OCA Package Design Requirements as determined by the OCA Package governance body.
 
-Community overlays are proposed to the OCA Package governance body for a change in status. Approval to Recognized overlay is the resonsibility of the OCA Package governance body. The OCA Package governance body is responsible for the timely addition of the new Recognized overlay specification to the official oca_package standard. Community overlays may have syntax changed by the OCA Package governance body to harmonize the overlay with OCA Package Design Requirements.
+Community overlays are proposed to the OCA Package governance body for a change in status. Approval to Recognized overlay is the resonsibility of the OCA Package governance body. The OCA Package governance body is responsible for the timely addition of the new Recognized overlay specification to the official oca_package standard. Community overlays may have syntax changed by the OCA Package governance body to harmonize the overlay with OCA Package Design Requirements if necessary.
 
 #### Promotion of overlays to official OCA Specification: 
 HCF maintains the official implementation the OCA specification. To become become part of the official OCA specification any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
@@ -91,7 +91,7 @@ This overlay follows official OCA Package requirements documented at _(link to O
 **Test case**: 
  - At least one fully worked example MUST be provided.
  - The worked example MUST be a fully canonicalized, JSON serialized oca_package with SAIDs calculated. 
- - The fully worked example MUST include a minimal set of capture_base and any other overlays that the documented overlay depends on. 
+ - The fully worked example MUST include at least a minimal set of capture_base and any other overlays that the documented overlay depends on. 
  - The example MUST exclude any transformations made for readability that would interfere with the reproducible calculation of the SAID.
 
 
