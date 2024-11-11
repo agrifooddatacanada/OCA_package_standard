@@ -20,35 +20,24 @@ The overlays and capture base of the [OCA Specification](http://oca.colossi.netw
 The SAID of the oca_bundle when calculated only includes capture_base and OCA overlays documented by the official specification. Additional oca_bundles which are dependencies are collected in the object Dependencies. Dependencies only include official specification oca_bundles.
 
 ### Extension overlays
-Extension within oca_package contains overlays and include Recognized overlays and Community overlays. These overlays are outside of the governance of the Human Colossus Foundation and can be created by members of the community to meet their needs.
-
-#### Recognized Overlays
-Recognized overlays are governed by the OCA Package governance body which hosts the official source of overlay documentation. The OCA Package governance body is responsible for ensuring all Recognized overlays are correctly built and documented.
-
-#### Community Overlays
-Community overlays are governed by their respective communities. When present in an oca_package community overlays MUST follow the OCA Package Design Requirements. A community can consist of one individual implementing a single project addressing a single need.
+Extension within oca_package contains overlays developed by various communities. These overlays are outside of the governance of the Human Colossus Foundation and can be created by members of the community to meet their needs.
+Community overlays are governed by their respective communities. A community can consist of one individual implementing a single project addressing a single need. A community can also be a large consortium of partners with their own governance structure for determining composition, versioning and acceptance of their community overlays. When present in an oca_package community overlays MUST follow the OCA Package Design Requirements.  
 
 ## Governance of OCA Package
 
 The oca_package is under the governance of the OCA Package governance body.
 
-The OCA Package governance body MUST maintain the official standard specification for oca_package and the OCA Package Design Requirements. OCA Recognized overlays and Community overlays MUST follow the OCA Package Design Requirements.
+The OCA Package governance body MUST maintain the official standard specification for oca_package and the OCA Package Design Requirements. OCA Community overlays MUST follow the OCA Package Design Requirements.
 
-### Promotion of Overlays
-#### Promotion from Community to Recognized overlays: 
-Community overlays are first developed in the community and supported by specific use cases. Then, when popular enough, community overlays may be proposed to the OCA Package governance body as Recognized Overlays. Recognized overlays are accepted from the community when they follow the OCA Package Design Requirements as determined by the OCA Package governance body.
-
-Community overlays are proposed to the OCA Package governance body for a change in status. Approval to Recognized overlay is the resonsibility of the OCA Package governance body. The OCA Package governance body is responsible for the timely addition of the new Recognized overlay specification to the official oca_package standard. Community overlays may have syntax changed by the OCA Package governance body to harmonize the overlay with OCA Package Design Requirements if necessary.
-
-#### Promotion of overlays to official OCA Specification: 
+### Promotion of overlays to official OCA Specification: 
 HCF maintains the official implementation the OCA specification. To become become part of the official OCA specification any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
 
 ## Technical Implementation of an OCA Package
 Technical implementation of the OCA package is outside of the scope of the OCA Package governance body. Communities are expected to develop their own implementations.
 
 # OCA Package Design Requirements
-1. Required and Community overlays MUST follow OCA Package Syntax Requirements
-2. Documentation for Required and Community overlays MUST be published publically and follow the OCA Package Overlay Documentation Requirements. 
+1. Community overlays MUST follow OCA Package Syntax Requirements
+2. Documentation for Community overlays MUST be published publically and follow the OCA Package Overlay Documentation Requirements. 
 4. SAID calculations of the oca_package contents (excluding oca_bundle) follow requirements documented in [CESR Specification](https://weboftrust.github.io/ietf-cesr/draft-ssmith-cesr.html). This non-normative post [documents the process and design choices of the calculations of SAIDs](https://kentbull.com/2024/09/22/keri-series-understanding-self-addressing-identifiers-said/) and includes links to libraries implementing the SAID calculation which can be used by overlay developers. The author Kent Bull is officially contributing documentation to the ongoing work of the [latest CESR specification](https://trustoverip.github.io/tswg-cesr-specification/).
 5. Lexicographical sorting follows the requirements documented in section [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 
@@ -59,9 +48,8 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 	- `oca_bundle` which MUST contain two objects:
  		- `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
 		- `dependencies` which MAY contain additional oca_bundles that are referenced by the OCA_package `oca_bundle` and meet the same `oca_bundle` requirements.
-	- `extensions` which MAY contain Recognized and Community overlays which are ordered lexicographically according to: [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
+	- `extensions` which MAY contain Community overlays which are ordered lexicographically according to: [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 - Extension overlay contents MUST follow [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
-- Recognized overlays MUST use type= "recognized/overlay/name/vX.X" where name is the name of the overlay and versioning MUST follow semantic versioning.
 - Community overlays MUST use type= "community/community_name/overlay/name/vX.X" where name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
 
 ## OCA Package Overlay Documentation Requirements
