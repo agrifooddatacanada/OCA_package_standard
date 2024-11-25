@@ -21,7 +21,7 @@ The SAID of the oca_bundle when calculated only includes capture_base and OCA ov
 
 ### Extension overlays
 Extension within oca_package contains overlays developed by various communities. These overlays are outside of the governance of the Human Colossus Foundation and can be created by members of the community to meet their needs.
-Community overlays are governed by their respective communities. A community can consist of one individual implementing a single project addressing a single need. A community can also be a large consortium of partners with their own governance structure for determining composition, versioning and acceptance of their community overlays. When present in an oca_package community overlays MUST follow the OCA Package Design Requirements.  
+Community overlays are governed by their respective communities. A community can consist of one individual implementing a single project addressing a single need. A community can also be a large consortium of partners with their own governance structure for determining composition, versioning and acceptance of their community overlays. When present in an oca_package, community overlays MUST follow the OCA Package Design Requirements.  
 
 ## Governance of OCA Package
 
@@ -79,7 +79,7 @@ This overlay follows official OCA Package requirements documented at _(link to O
 **Test case**: 
  - At least one fully worked example MUST be provided.
  - The worked example MUST be a fully canonicalized, JSON serialized oca_package with SAIDs calculated. 
- - The fully worked example MUST include at least a minimal set of capture_base and any other overlays that the documented overlay depends on. 
+ - The fully worked example MUST include a minimal set of capture_base and any other overlays that the documented overlay depends on and MAY include more overlays. 
  - The example MUST NOT be transformed for readability or altered in any way that would interfere with the reproducible calculation of the SAID directly from the test case example.
 
 ## Normative references
