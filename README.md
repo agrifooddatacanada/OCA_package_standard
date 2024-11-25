@@ -51,6 +51,7 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 	- `extensions` which MAY contain Community overlays which are ordered lexicographically according to: [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 - Extension overlay contents MUST follow [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 - Community overlays MUST use type= "community/community_name/overlay/name/vX.X" where name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
+- Communities MUST ensure that their overlay names are unique within their community_name namespace.
 
 ## OCA Package Overlay Documentation Requirements
 This section outlines the different sections of published documentation for each overlay. Each header must be present in a publically documented overlay description.
@@ -79,7 +80,7 @@ This overlay follows official OCA Package requirements documented at _(link to O
  - At least one fully worked example MUST be provided.
  - The worked example MUST be a fully canonicalized, JSON serialized oca_package with SAIDs calculated. 
  - The fully worked example MUST include at least a minimal set of capture_base and any other overlays that the documented overlay depends on. 
- - The example MUST exclude any transformations made for readability that would interfere with the reproducible calculation of the SAID.
+ - The example MUST NOT be transformed for readability or altered in any way that would interfere with the reproducible calculation of the SAID directly from the test case example.
 
 ## Normative references
 - [OCA specification v1.0.1](http://oca.colossi.network/specification/) 
