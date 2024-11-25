@@ -67,7 +67,7 @@ This overlay follows official OCA Package requirements documented at _(link to O
  - Describe the functionality of the overlay, what needs the overlay is addressing and complete descriptions of components of the overlay. Any references to community standards belong in this section.
 
 **Example**: 
- - Provide at least one example of the overlay in fully canonicalized, serialized (in JSON) format including a correctly calculated SAID value. 
+ - Provide at least one example of the overlay which has been fully canonicalized and serialized (in JSON) for calculating the correct overlay SAID value. 
  - The capture_base SAID does not need to reference a specific capture_base but MUST be well formed. 
  - The capture_base example SAID is used in the calculations of the overlay SAID. 
  - The example MAY be formatted with line breaks and indentations, including reorganizing objects for readability after the SAID has been calculated.
