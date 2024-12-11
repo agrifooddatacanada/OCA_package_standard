@@ -52,6 +52,8 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 - Extension overlay contents MUST follow [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 - Community overlays MUST use type= "community/community_name/overlay/name/vX.X" where name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
+- Community overlays MUST reference the capture base of the schema using "capture_base":"####" where #### is the SAID of the referenced capture base.
+- Community overlays MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
 
 ## OCA Package Overlay Documentation Requirements
 This section outlines the different sections of published documentation for each overlay. Each header must be present in a publically documented overlay description.
