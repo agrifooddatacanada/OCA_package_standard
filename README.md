@@ -69,6 +69,9 @@ This overlay follows official OCA Package requirements documented at _(link to O
 **Description**:
  - Describe the functionality of the overlay, what needs the overlay is addressing and complete descriptions of components of the overlay. Any references to community standards belong in this section.
 
+**Canonicalization Rules**:
+- Describe the canonicalization rules explicity of the schema (in what order are all components of the overlay).
+
 **Example**: 
  - Provide at least one example of the overlay which has been fully canonicalized and serialized (in JSON) for calculating the correct overlay SAID value. 
  - The capture_base SAID does not need to reference a specific capture_base but MUST be well formed. 
