@@ -1,4 +1,4 @@
-# OCA Package version 1.0 DRAFT
+# OCA Package version 1.0 DRAFT - not yet finalized
 
 Overlays Capture Architecture is a standardized language for describing data schemas.
 
@@ -12,7 +12,7 @@ The OCA specification describes oca_bundle which collects a capture base and ass
 
 ![OCA package](https://github.com/carlyh-micb/OCA_package/blob/main/package.png)
 
-Figure: example oca_package structure
+Figure: example oca_package structure - note this is being updated.
 
 ### OCA Bundle
 The overlays and capture base of the [OCA Specification](http://oca.colossi.network/specification/) are contained in the oca_bundle object of an oca_package. The contents of oca_bundle are governed by the Human Colossus Foundation and documented into the official [OCA Specification](http://oca.colossi.network/specification/).
@@ -49,8 +49,8 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
  		- `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
 		- `dependencies` which MAY contain additional oca_bundles that are referenced by the OCA_package `oca_bundle` and meet the same `oca_bundle` requirements.
 	- `extensions` which MAY contain Community overlays which are ordered lexicographically according to: [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
-- Extension overlay contents MUST follow [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
-- Community overlays MUST use type= "community/community_name/overlay/name/vX.X" where name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
+- Extension overlay contents MUST describe their canonicalization rules, and when objects are sorted lexicographically they MUST follow [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
+- Community overlays MUST use type= "community/community_name/name/vX.X" where name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
 - Community overlays MUST reference the capture base of the schema using "capture_base":"####" where #### is the SAID of the referenced capture base.
 - Community overlays MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
