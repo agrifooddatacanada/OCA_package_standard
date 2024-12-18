@@ -58,7 +58,7 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 ## OCA Package Overlay Documentation Requirements
 This section outlines the different sections of published documentation for each overlay. Each header must be present in a publically documented overlay description.
 
-**Title**: _overlay name_ by _community name_: version: _version_
+**Title**: _overlay name_ by _community name_ - v_version_ (e.g. Ordering by ADC - v1.0)
 
 **Authors**: _overlay author names_
 
