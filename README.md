@@ -36,7 +36,7 @@ HCF maintains the official implementation the OCA specification. To become becom
 Technical implementation of the OCA package is outside of the scope of the OCA Package governance body. Communities are expected to develop their own implementations.
 
 # OCA Package Design Requirements
-1. Community overlays MUST follow OCA Package Syntax Requirements
+1. Community overlays MUST follow OCA Package Syntax Requirements and OCA Community Overlay Syntax Requirements.
 2. Documentation for Community overlays MUST be published publically and follow the OCA Package Overlay Documentation Requirements. 
 4. SAID calculations of the oca_package contents (excluding oca_bundle) follow requirements documented in [CESR Specification](https://weboftrust.github.io/ietf-cesr/draft-ssmith-cesr.html). This non-normative post [documents the process and design choices of the calculations of SAIDs](https://kentbull.com/2024/09/22/keri-series-understanding-self-addressing-identifiers-said/) and includes links to libraries implementing the SAID calculation which can be used by overlay developers. The author Kent Bull is officially contributing documentation to the ongoing work of the [latest CESR specification](https://trustoverip.github.io/tswg-cesr-specification/).
 5. Lexicographical sorting follows the requirements documented in section [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
@@ -48,21 +48,23 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 	- `oca_bundle` which MUST contain two objects:
  		- `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
 		- `dependencies` which MAY contain additional oca_bundles that are referenced by the OCA_package `oca_bundle` and meet the same `oca_bundle` requirements.
-	- `extensions` which MAY contain Community overlays which are ordered lexicographically according to: [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
-- Extension overlay contents MUST describe their canonicalization rules, and when objects are sorted lexicographically they MUST follow [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
-- Community overlays MUST use type= "community/community_name/name/vX.X" where name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
+	- `extensions` which MAY contain Community overlays which are ordered lexicographically.
+
+## OCA Community Overlay Syntax Requirements
+- Community overlays MUST use type= "community/overlays/community_name/overlay_name/vX.X" where overlay_name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
+- Community overlays MUST reference the digest of the overlay using "d":"####" where #### is the SAID of the correctly canonicalized overlay.
 - Community overlays MUST reference the capture base of the schema using "capture_base":"####" where #### is the SAID of the referenced capture base.
 - Community overlays MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
 
 ## OCA Package Overlay Documentation Requirements
-This section outlines the different sections of published documentation for each overlay. Each header must be present in a publically documented overlay description.
+This section outlines the different sections of published documentation for each overlay. Each header MUST be present in a publically documented overlay description and if a section is left empty include the phrase "Intentionally left empty" to indicate it is not a mistake.
 
-**Title**: _overlay name_ by _community name_ - v_version_ (e.g. Ordering by ADC - v1.0)
+**Title**: _overlay name_ by _community name_ - v _version_ (e.g. Ordering by ADC - v1.0)
 
 **Authors**: _overlay author names_
 
-**Date released**: _date of version release_
+**Date released**: _date of version release ISO standard YYYY-MM-DD_
 
 This overlay follows official OCA Package requirements documented at _(link to OCA Package source)_
 
@@ -70,7 +72,7 @@ This overlay follows official OCA Package requirements documented at _(link to O
  - Describe the functionality of the overlay, what needs the overlay is addressing and complete descriptions of components of the overlay. Any references to community standards belong in this section.
 
 **Canonicalization Rules**:
-- Describe the canonicalization rules explicity of the schema (in what order are all components of the overlay).
+- Extension overlay documentation MUST describe their canonicalization rules; when contents are insertion ordered and when they are lexicographically ordered.
 
 **Example**: 
  - Provide at least one example of the overlay which has been fully canonicalized and serialized (in JSON) for calculating the correct overlay SAID value. 
@@ -79,7 +81,8 @@ This overlay follows official OCA Package requirements documented at _(link to O
  - The example MAY be formatted with line breaks and indentations, including reorganizing objects for readability after the SAID has been calculated.
 
 **Rules summary**: 
- - Summarize all the requirements (MUST and MAY) for the overlay.
+ - Extension overlay documentation MUST summarize all the requirements (MUST and MAY) for the overlay.
+ - Extension overlay documentation MUST list all keys of the overlay that are required to be present (even if left empty) and which keys are optional.
 
 **Test case**: 
  - At least one fully worked example MUST be provided.
