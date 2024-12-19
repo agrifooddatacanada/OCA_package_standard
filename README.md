@@ -36,26 +36,31 @@ HCF maintains the official implementation the OCA specification. To become becom
 Technical implementation of the OCA package is outside of the scope of the OCA Package governance body. Communities are expected to develop their own implementations.
 
 # OCA Package Design Requirements
-1. Community overlays MUST follow OCA Package Syntax Requirements and OCA Community Overlay Syntax Requirements.
+1. Community overlays MUST follow OCA Package Syntax Requirements
 2. Documentation for Community overlays MUST be published publically and follow the OCA Package Overlay Documentation Requirements. 
 4. SAID calculations of the oca_package contents (excluding oca_bundle) follow requirements documented in [CESR Specification](https://weboftrust.github.io/ietf-cesr/draft-ssmith-cesr.html). This non-normative post [documents the process and design choices of the calculations of SAIDs](https://kentbull.com/2024/09/22/keri-series-understanding-self-addressing-identifiers-said/) and includes links to libraries implementing the SAID calculation which can be used by overlay developers. The author Kent Bull is officially contributing documentation to the ongoing work of the [latest CESR specification](https://trustoverip.github.io/tswg-cesr-specification/).
 5. Lexicographical sorting follows the requirements documented in section [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 
 ## OCA Package Syntax Requirements
 - oca_package MUST include the following objects in this specific order (canonicalization):
-	- `d` where the package MUST use "d= _SAID value of entire oca_package_"
-	- `type` where the the package MUST use type="oca_package/1.0".
+	- `d` where the package MUST use "d":"_SAID value of entire oca_package_"
+	- `type` where the the package MUST use "type":"oca_package/1.0".
 	- `oca_bundle` which MUST contain two objects:
  		- `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
 		- `dependencies` which MAY contain additional oca_bundles that are referenced by the OCA_package `oca_bundle` and meet the same `oca_bundle` requirements.
-	- `extensions` which MAY contain Community overlays which are ordered lexicographically.
-
-## OCA Community Overlay Syntax Requirements
-- Community overlays MUST use type= "community/overlays/community_name/overlay_name/vX.X" where overlay_name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
+	- `extensions` which MAY contain community overlays.
+   		- `community overlays` MUST be grouped according to community and bundle_digest (a community grouping)
+- Each community grouping MUST include the following objects in this specific order (canonicalization):
+	- `d` where the community grouping MUST use "d":"_SAID value of entire community grouping_"
+   	- `type` where the community grouping MUST use "type":"community/community_name/extension/vX.X" where community_name is the name of the community and versioning MUST follow semantic versioning.
+   	- `bundle_digest` where the community grouping MUST use "bundle_digest":_"SAID value of the target bundle which MUST appear in oca_bundle_".
+ - Each community overlay MUST include the following objects in this specific order (canonicalization):
+	- `d` where the community overlay MUST use "d":"####" where #### is the SAID of the correctly canonicalized overlay.
+	- `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where overlay_name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
+   	- `capture_base` where the community overlay MUST reference the capture base of the schema using "capture_base":"####" where #### is the SAID of the referenced capture base.
+- Each community overlay MAY include language and MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code. 
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
-- Community overlays MUST reference the digest of the overlay using "d":"####" where #### is the SAID of the correctly canonicalized overlay.
-- Community overlays MUST reference the capture base of the schema using "capture_base":"####" where #### is the SAID of the referenced capture base.
-- Community overlays MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
+
 
 ## OCA Package Overlay Documentation Requirements
 This section outlines the different sections of published documentation for each overlay. Each header MUST be present in a publically documented overlay description and if a section is left empty include the phrase "Intentionally left empty" to indicate it is not a mistake.
