@@ -12,7 +12,7 @@ The OCA specification describes oca_bundle which collects a capture base and ass
 
 ![OCA package](https://github.com/carlyh-micb/OCA_package/blob/main/package.png)
 
-Figure: example oca_package structure - note this is being updated.
+Figure: example oca_package structure. Bundle and dependencies are present in the oca_bundle which is the OCA specification. Extensions are grouped according to community and bundle_digest target. In this example there is one community (adc) and two schema bundles (blue and orange highlight) which are referenced by two community groupings.
 
 ### OCA Bundle
 The overlays and capture base of the [OCA Specification](http://oca.colossi.network/specification/) are contained in the oca_bundle object of an oca_package. The contents of oca_bundle are governed by the Human Colossus Foundation and documented into the official [OCA Specification](http://oca.colossi.network/specification/).
@@ -54,6 +54,7 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 	- `d` where the community grouping MUST use "d":"_SAID value of entire community grouping_"
    	- `type` where the community grouping MUST use "type":"community/community_name/extension/vX.X" where community_name is the name of the community and versioning MUST follow semantic versioning.
    	- `bundle_digest` where the community grouping MUST use "bundle_digest":_"SAID value of the target bundle which MUST appear in oca_bundle_".
+   	- `overlays` where the community overlays are listed.
  - Each community overlay MUST include the following objects in this specific order (canonicalization):
 	- `d` where the community overlay MUST use "d":"####" where #### is the SAID of the correctly canonicalized overlay.
 	- `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where overlay_name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
@@ -66,6 +67,8 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 This section outlines the different sections of published documentation for each overlay. Each header MUST be present in a publically documented overlay description and if a section is left empty include the phrase "Intentionally left empty" to indicate it is not a mistake.
 
 **Title**: _overlay name_ by _community name_ - v _version_ (e.g. Ordering by ADC - v1.0)
+
+**Community grouping**: _"community/community_name/extension/vX.X" where community_name is the name of the community and versioning MUST follow semantic versioning_.
 
 **Authors**: _overlay author names_
 
