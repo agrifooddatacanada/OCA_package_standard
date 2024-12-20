@@ -15,7 +15,7 @@ The OCA specification describes oca_bundle which collects a capture base and ass
 Figure: example oca_package structure. The oca_bundle is from the OCA specification and contents are out of scope for OCA Package. Extensions are grouped according to community and bundle_digest target. In this example there is one community (adc) and two schema bundles (blue and orange highlight) which are referenced by two community groupings.
 
 ### OCA Bundle
-The overlays and capture base of the [OCA Specification](http://oca.colossi.network/specification/) are contained in the oca_bundle object of an oca_package. The contents of oca_bundle are governed by the Human Colossus Foundation and documented into the official [OCA Specification](http://oca.colossi.network/specification/).
+The overlays and capture base of the [OCA Specification](http://oca.colossi.network/specification/) are contained in the oca_bundle object of an oca_package. Schemas can reference other schemas in a hierarchical fashion. The referenced schemas are found inside Dependencies which are contained in an oca_bundle object. The contents of oca_bundle are governed by the Human Colossus Foundation and documented into the official [OCA Specification](http://oca.colossi.network/specification/). 
 
 The SAID of the oca_bundle when calculated only includes capture_base and OCA overlays documented by the official specification. Additional oca_bundles which are dependencies are collected in the object Dependencies. Dependencies only include official specification oca_bundles.
 
