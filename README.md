@@ -1,8 +1,10 @@
 # OCA Package version 1.0 DRAFT - not yet finalized
 
-Overlays Capture Architecture is a standardized language for describing data schemas.
+Overlays Capture Architecture (OCA) is a standardized language for describing data schemas.
 
 Overlays Capture Architecture is optimized for overlays, where the community can improve the functionalities of a schema to meet their needs while maintaining interoperability.
+
+OCA Package extends the functionality of OCA by specifying how new overlays created by communities can be added to OCA objects without disrupting those overlays that belong to the core specification. The core specification overlays remain in one object of OCA Package (`oca_bundle`) with a Self-addressing Identifier (SAID) calculated only from in-specification OCA overlays. Additional overlays that are not part of the core specfication are added to a second object (`extensions`) where their addition does not change the calculation of the SAID of the in-specification overlays. This helps with interoperability as different communities may not recognize each others community overlays, but all should recognize the in-specification overlays. The SAIDs of these in-specification overlays will therefore remain consistent across communities.
 
 ## Components of an OCA Package
 
