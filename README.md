@@ -49,7 +49,7 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 	- `type` where the the package MUST use "type":"oca_package/1.0".
 	- `oca_bundle` which MUST contain two objects:
  		- `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
-		- `dependencies` which MAY contain additional oca_bundles that are referenced by the OCA_package `oca_bundle` and meet the same `oca_bundle` requirements.
+		- `dependencies` which MAY contain additional `bundle` (sub)schemas that are referenced by other schemas of `oca_bundle`.
 	- `extensions` which MAY contain community overlays.
    		- `community overlays` MUST be grouped according to community and bundle_digest (a community grouping)
 - Each community grouping MUST include the following objects in this specific order (canonicalization):
@@ -58,9 +58,9 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
    	- `bundle_digest` where the community grouping MUST use "bundle_digest":_"SAID value of the target bundle which MUST appear in oca_bundle_".
    	- `overlays` where the community overlays are listed.
  - Each community overlay MUST include the following objects in this specific order (canonicalization):
-	- `d` where the community overlay MUST use "d":"####" where #### is the SAID of the correctly canonicalized overlay.
-	- `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where overlay_name is the name of the overlay, community_name is the name of the community and versioning MUST follow semantic versioning.
-   	- `capture_base` where the community overlay MUST reference the capture base of the schema using "capture_base":"####" where #### is the SAID of the referenced capture base.
+	- `d` where the community overlay MUST use "d":"_SAID of the correctly canonicalized overlay_".
+	- `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where community_name is the name of the community, overlay_name is the name of the overlay, and versioning MUST follow semantic versioning.
+   	- `capture_base` where the community overlay MUST reference the capture base of the schema using "capture_base":"_SAID of the referenced capture base_".
 - Each community overlay MAY include language and MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code. 
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
 
