@@ -104,12 +104,12 @@ This overlay follows official OCA Package requirements documented at _(link to O
  - The fully worked example MUST include a minimal set of capture_base and any other overlays that the documented overlay depends on and MAY include more overlays. 
  - The example MUST NOT be transformed for readability or altered in any way that would interfere with the reproducible calculation of the SAID directly from the test case example.
 
-# Table of Accepted Community Names
-| Name | URL source | email contact | Date |
-| --- | --- | --- | ---|
-|adc|||
-
 ## Normative references
 - [OCA specification v1.0.1](http://oca.colossi.network/specification/) 
 - [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 - [CESR Specification](https://weboftrust.github.io/ietf-cesr/draft-ssmith-cesr.html) for SAID calculations
+
+# Table of Accepted Community Names
+| Name | URL source | email contact | Date |
+| --- | --- | --- | ---|
+|adc|https://github.com/agrifooddatacanada/ADC_extensions|adc@uoguelph.ca|2025-01-01|
