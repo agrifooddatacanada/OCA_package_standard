@@ -31,6 +31,10 @@ The oca_package is under the governance of the OCA Package governance body.
 
 The OCA Package governance body MUST maintain the official standard specification for oca_package and the OCA Package Design Requirements. OCA Community overlays MUST follow the OCA Package Design Requirements.
 
+### Governance of OCA Package community names
+
+Communities are free to establish and govern their own namespace within OCA Package. Communities must avoid collision within the namespace and ensure that their names are unique. Communities can request to register their unique name with the OCA Package governance body which lists accepted names here at the end of this specification. Provide the namespace name (no wildcards), source URL and email contact to register. These namespaces are recognized by the OCA Package community as priveledged and exclusive to that community. Reserved namespaces include `internal*` where anyone can use names that begin with internal (such as internal-uog) to be used within private systems and `example` which can be used for examples similar to the usage of example.com.
+
 ### Promotion of overlays to official OCA Specification: 
 HCF maintains the official implementation the OCA specification. To become become part of the official OCA specification any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
 
@@ -99,6 +103,11 @@ This overlay follows official OCA Package requirements documented at _(link to O
  - The worked example MUST be a fully canonicalized, JSON serialized oca_package with SAIDs calculated. 
  - The fully worked example MUST include a minimal set of capture_base and any other overlays that the documented overlay depends on and MAY include more overlays. 
  - The example MUST NOT be transformed for readability or altered in any way that would interfere with the reproducible calculation of the SAID directly from the test case example.
+
+# Table of Accepted Community Names
+| Name | URL source | email contact | Date |
+| --- | --- | --- | ---|
+|adc|||
 
 ## Normative references
 - [OCA specification v1.0.1](http://oca.colossi.network/specification/) 
