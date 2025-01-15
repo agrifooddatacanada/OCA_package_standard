@@ -1,0 +1,117 @@
+{
+  "d": "EGScUQqu4_lMk4VrBe7QwJ9jy9T9EtnxdhZS1GwIRUtd",
+  "type": "adc/oca_package/1.0",
+  "oca_bundle": {
+    "v": "OCAA11JSON000663_",
+    "bundle": {
+      "v": "OCAS11JSON000646_",
+      "d": "EKHBds6myKVIsQuT7Zr23M8Xk_gwq-2SaDRUprvqOXxa",
+      "capture_base": {
+        "d": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+        "type": "spec/capture_base/1.0",
+        "attributes": {
+          "d": "Text",
+          "i": "Text",
+          "passed": "Boolean"
+        },
+        "classification": "",
+        "flagged_attributes": []
+      },
+      "overlays": {
+        "character_encoding": {
+          "d": "ED6Eio9KG2jHdFg3gXQpc0PX2xEI7aHnGDOpjU6VBfjs",
+          "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+          "type": "spec/overlays/character_encoding/1.0",
+          "attribute_character_encoding": {
+            "d": "utf-8",
+            "i": "utf-8",
+            "passed": "utf-8"
+          }
+        },
+        "conformance": {
+          "d": "EJSRe8DnLonKf6GVT_bC1QHoY0lQOG6-ldqxu7pqVCU8",
+          "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+          "type": "spec/overlays/conformance/1.0",
+          "attribute_conformance": {
+            "d": "M",
+            "i": "M",
+            "passed": "M"
+          }
+        },
+        "information": [
+          {
+            "d": "EIBXpVvka3_4lheeajtitiafIP78Ig8LDMVX9dXpCC2l",
+            "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+            "type": "spec/overlays/information/1.0",
+            "language": "eng",
+            "attribute_information": {
+              "d": "Schema digest",
+              "i": "Credential Issuee",
+              "passed": "Enables or disables passing"
+            }
+          }
+        ],
+        "label": [
+          {
+            "d": "ECZc26INzjxVbNo7-hln6xN3HW3e1r6NGDmA5ogRo6ef",
+            "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+            "type": "spec/overlays/label/1.0",
+            "language": "eng",
+            "attribute_categories": [],
+            "attribute_labels": {
+              "d": "Schema digest",
+              "i": "Credential Issuee",
+              "passed": "Passed"
+            },
+            "category_labels": {}
+          }
+        ],
+        "meta": [
+          {
+            "d": "EOxvie-zslkGmFzVqYAzTVtO7RyFXAG8aCqE0OougnGV",
+            "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+            "type": "spec/overlays/meta/1.0",
+            "language": "eng",
+            "description": "Entrance credential",
+            "name": "Entrance credential"
+          }
+        ]
+      }
+    },
+    "dependencies": []
+  },
+  "extensions": [
+    {
+      "d": "EJpY79gOD8GrJ3lnG7z-nPKBbzvmY7gqY1A_NvOlI2wm",
+      "type": "community/adc/extension/1.0",
+      "bundle_digest": "EKHBds6myKVIsQuT7Zr23M8Xk_gwq-2SaDRUprvqOXxa",
+      "overlays": {
+        "ordering": {
+          "d": "EODHWbxqH_qIGfAtiDV5dmq2J63JBjqefqEu50qKq_q8",
+          "type": "community/overlays/adc/ordering/1.0",
+          "capture_base": "EBnF9U9XW1EqteIW0ucAR4CsTUqojvfIWkeifsLRuOUW",
+          "ordering_attribute": [
+            "i",
+            "d"
+          ],
+          "entry_code_ordering": {
+            "i": [
+              "Google",
+              "ISNI",
+              "ORCiD",
+              "ResearcherID",
+              "Scopus"
+            ],
+            "d": [
+              "001",
+              "002",
+              "003",
+              "004",
+              "005"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
