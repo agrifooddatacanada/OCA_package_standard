@@ -12,6 +12,8 @@ OCA Package formalizes a way to develop, publish and use overlays that are outsi
 
 The OCA specification describes oca_bundle which collects a capture base and associated overlays into a single object. OCA Package describes how additional overlays outside of the official specification can be added to an OCA Schema without altering the oca_bundle object.
 
+[Link to a fully worked example of an OCA Package.](example_package.json)
+
 ![OCA package](https://github.com/carlyh-micb/OCA_package/blob/main/package.png)
 
 Figure: example oca_package structure. The oca_bundle is from the OCA specification and contents are out of scope for OCA Package. Extensions are grouped according to community and bundle_digest target. In this example there is one community (adc) and two schema bundles (blue and orange highlight) which are referenced by two community groupings.
@@ -67,7 +69,6 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
    	- `capture_base` where the community overlay MUST reference the capture base of the schema using "capture_base":"_SAID of the referenced capture base_".
 - Each community overlay MAY include language and MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code. 
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
-
 
 ## OCA Package Overlay Documentation Requirements
 This section outlines the different sections of published documentation for each overlay. Each header MUST be present in a publically documented overlay description and if a section is left empty include the phrase "Intentionally left empty" to indicate it is not a mistake.
