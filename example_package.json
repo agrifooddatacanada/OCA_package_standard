@@ -1,6 +1,6 @@
 {
-  "d": "EMPEq444F7ByZup3npz-v32f5oTO51hBVT-aLmd0md8y",
-  "type": "adc/oca_package/1.0",
+  "d": "EBpX82P-HmRjGe3Qr-zQbQmvN7uqxVh0Xt_nM61I9oqA",
+  "type": "oca_package/1.0",
   "oca_bundle": {
     "v": "OCAA11JSON0008bc_",
     "bundle": {
@@ -102,4 +102,3 @@
     }
   ]
 }
-
