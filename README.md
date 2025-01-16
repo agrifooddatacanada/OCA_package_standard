@@ -62,12 +62,14 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 	- `d` where the community grouping MUST use "d":"_SAID value of entire community grouping_"
    	- `type` where the community grouping MUST use "type":"community/community_name/extension/vX.X" where community_name is the name of the community and versioning MUST follow semantic versioning.
    	- `bundle_digest` where the community grouping MUST use "bundle_digest":_"SAID value of the target bundle which MUST appear in oca_bundle_".
-   	- `overlays` where the community overlays are listed.
+   	- `overlays` where the community overlays are listed and are sorted lexicographically
+   	- Each overlay within the community grouping MUST be named the same as the overlay_name used in the type field of the overlay.
  - Each community overlay MUST include the following objects in this specific order (canonicalization):
 	- `d` where the community overlay MUST use "d":"_SAID of the correctly canonicalized overlay_".
 	- `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where community_name is the name of the community, overlay_name is the name of the overlay, and versioning MUST follow semantic versioning.
    	- `capture_base` where the community overlay MUST reference the capture base of the schema using "capture_base":"_SAID of the referenced capture base_".
-- Each community overlay MAY include language and MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code. 
+	- Each community overlay MAY include language and if present, MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
+	- All other content of the overlay follows after these four points and their canonicalization MUST be described in the overlay documentation.
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
 
 ## OCA Package Overlay Documentation Requirements
