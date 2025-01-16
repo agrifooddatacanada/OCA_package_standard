@@ -35,7 +35,7 @@ The OCA Package governance body MUST maintain the official standard specificatio
 
 ### Governance of OCA Package community names
 
-Communities are free to establish and govern their own namespace within OCA Package. Communities must avoid collision within the namespace and ensure that their names are unique. Communities can request to register their unique name with the OCA Package governance body which lists accepted names here at the end of this specification. Provide the namespace name (no wildcards), source URL and email contact to register. These namespaces are recognized by the OCA Package community as priveledged and exclusive to that community. Reserved namespaces include `internal*` where anyone can use names that begin with internal (such as internal-uog) to be used within private systems and `example` which can be used for examples similar to the usage of example.com.
+Communities are free to establish and govern their own namespace within OCA Package. Communities must avoid collision within the namespace and ensure that their names are unique. Communities can request to register their unique name with the OCA Package governance body which lists accepted names here at the end of this specification. Provide the namespace name (no wildcards), source URL and email contact to register. These namespaces are recognized by the OCA Package community as privileged and exclusive to that community. Reserved namespaces include `internal*` where anyone can use names that begin with internal (such as internal-uog) to be used within private systems and `example` which can be used for examples similar to the usage of example.com.
 
 ### Promotion of overlays to official OCA Specification: 
 HCF maintains the official implementation the OCA specification. To become become part of the official OCA specification any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
@@ -55,9 +55,10 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
 	- `type` where the the package MUST use "type":"oca_package/1.0".
 	- `oca_bundle` which MUST contain two objects:
  		- `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
-		- `dependencies` which MAY contain additional `bundle` (sub)schemas that are referenced by other schemas of `oca_bundle`.
-	- `extensions` which MAY contain community overlays.
+		- `dependencies` which MAY contain additional `bundle` (sub)schemas as specified by the OCA specification v1.0.1, that are referenced by the schema of `oca_bundle`.
+	- `extensions` which MAY contain community groupings which contain community overlays.
    		- `community overlays` MUST be grouped according to community and bundle_digest (a community grouping)
+   		- `community groupings` MUST be ordered lexicographically by the content of the community grouping.
 - Each community grouping MUST include the following objects in this specific order (canonicalization):
 	- `d` where the community grouping MUST use "d":"_SAID value of entire community grouping_"
    	- `type` where the community grouping MUST use "type":"community/community_name/extension/vX.X" where community_name is the name of the community and versioning MUST follow semantic versioning.
@@ -67,7 +68,7 @@ Technical implementation of the OCA package is outside of the scope of the OCA P
  - Each community overlay MUST include the following objects in this specific order (canonicalization):
 	- `d` where the community overlay MUST use "d":"_SAID of the correctly canonicalized overlay_".
 	- `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where community_name is the name of the community, overlay_name is the name of the overlay, and versioning MUST follow semantic versioning.
-   	- `capture_base` where the community overlay MUST reference the capture base of the schema using "capture_base":"_SAID of the referenced capture base_".
+   	- `capture_base` where the community overlay MUST reference the capture base of the schema using "capture_base":"_SAID of the referenced capture base_", which MUST be the capture_base SAID of the referenced "bundle_digest".
 	- Each community overlay MAY include language and if present, MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
 	- All other content of the overlay follows after these four points and their canonicalization MUST be described in the overlay documentation.
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
