@@ -43,6 +43,8 @@ HCF maintains the official implementation the OCA specification. To become becom
 ## Technical Implementation of an OCA Package
 Technical implementation of the OCA package is outside of the scope of the OCA Package governance body. Communities are expected to develop their own implementations.
 
+The [ADC implementation can be found on npm](https://www.npmjs.com/package/oca_package).
+
 # OCA Package Design Requirements
 1. Community overlays MUST follow OCA Package Syntax Requirements
 2. Documentation for Community overlays MUST be published publically and follow the OCA Package Overlay Documentation Requirements. 
