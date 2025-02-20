@@ -6,6 +6,8 @@ Overlays Capture Architecture is optimized for overlays, where the community can
 
 OCA Package extends the functionality of OCA by specifying how new overlays created by communities can be added to OCA objects without disrupting those overlays that belong to the core specification. The core specification overlays remain in one object of OCA Package (`oca_bundle`) with a Self-addressing Identifier (SAID) calculated only from in-specification OCA overlays. Additional overlays that are not part of the core specfication are added to a second object (`extensions`) where their addition does not change the calculation of the SAID of the in-specification overlays. This helps with interoperability as different communities may not recognize each others community overlays, but all should recognize the in-specification overlays. The SAIDs of these in-specification overlays will therefore remain consistent across communities.
 
+![OCA Package conceptual architecture](OCA_package_structure.png)
+
 ## Components of an OCA Package
 
 OCA Package formalizes a way to develop, publish and use overlays that are outside of the OCA specification. 
@@ -14,7 +16,7 @@ The OCA specification describes oca_bundle which collects a capture base and ass
 
 [Link to a fully worked example of an OCA Package.](example_package.json)
 
-![OCA package](https://github.com/carlyh-micb/OCA_package/blob/main/package.png)
+![OCA package](package.png)
 
 Figure: example oca_package structure. The oca_bundle is from the OCA specification and contents are out of scope for OCA Package. Extensions are grouped according to community and bundle_digest target. In this example there is one community (adc) and two schema bundles (blue and orange highlight) which are referenced by two community groupings.
 
