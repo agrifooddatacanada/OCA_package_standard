@@ -8,6 +8,8 @@ OCA Package extends the functionality of OCA by specifying how new overlays crea
 
 ![OCA Package conceptual architecture](OCA_package_structure.png)
 
+Figure 1: Conceptual structure of an OCA package which contains two objects - the official OCA specification schema, and the associated overlays that lie outside of the specification.
+
 ## Components of an OCA Package
 
 OCA Package formalizes a way to develop, publish and use overlays that are outside of the OCA specification.
@@ -18,7 +20,7 @@ The OCA specification describes oca_bundle which collects a capture base and ass
 
 ![OCA package](package.png)
 
-Figure: example oca_package structure. The top two divisions highlighted in yellow are: oca_bundle and extensions. oca_bundle is governed by the Human Colossus Foundation. Extensions syntax is described in this specification. According to OCA specification (v1.0.1) an oca_bundle is divided into bundle and dependencies. Both contain complete schemas where the bundle contains the root schema which MAY reference dependent schemas. Each schema contains a single capture_base with its own digest identifier (highlighted in blue, pink and orange). The extensions section contains two separate communities (adc and example), they contain overlays which are grouped together within the objects identified by their corresponding capture_base digest (blue, pink and orange). There can be no extensions referencing a capture_base that does not appear in the oca_bundle.
+Figure 2: example oca_package structure. The top two divisions highlighted in yellow are: oca_bundle and extensions. oca_bundle is governed by the Human Colossus Foundation. Extensions syntax is described in this specification. According to OCA specification (v1.0.1) an oca_bundle is divided into bundle and dependencies. Both contain complete schemas where the bundle contains the root schema which MAY reference dependent schemas. Each schema contains a single capture_base with its own digest identifier (highlighted in blue, pink and orange). The extensions section contains two separate communities (adc and example), they contain overlays which are grouped together within the objects identified by their corresponding capture_base digest (blue, pink and orange). There can be no extensions referencing a capture_base that does not appear in the oca_bundle.
 
 ### OCA Bundle
 
