@@ -18,7 +18,7 @@ The OCA specification describes oca_bundle which collects a capture base and ass
 
 ![OCA package](package.png)
 
-Figure: example oca_package structure. The oca_bundle is from the OCA specification and contents are out of scope for OCA Package. Extensions are grouped according to community and bundle_digest target. In this example there is one community (adc) and two schema bundles (blue and orange highlight) which are referenced by two community groupings.
+Figure: example oca_package structure. The top two divisions highlighted in yellow are: oca_bundle and extensions. oca_bundle is governed by the Human Colossus Foundation. Extensions syntax is described in this specification. According to OCA specification (v1.0.1) an oca_bundle is divided into bundle and dependencies. Both contain complete schemas where the bundle contains the root schema which MAY reference dependent schemas. Each schema contains a single capture_base with its own digest identifier (highlighted in blue, pink and orange). The extensions section contains two separate communities (adc and example), they contain overlays which are grouped together within the objects identified by their corresponding capture_base digest (blue, pink and orange). There can be no extensions referencing a capture_base that does not appear in the oca_bundle.
 
 ### OCA Bundle
 
