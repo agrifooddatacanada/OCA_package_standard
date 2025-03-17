@@ -66,7 +66,7 @@ The [ADC implementation can be found on npm](https://www.npmjs.com/package/oca_p
   - `type` where the the package MUST use "type":"oca_package/1.0".
   - `oca_bundle` which MUST contain two objects:
     - `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
-    - `dependencies` which MAY contain additional `bundle` (sub)schemas as specified by the OCA specification v1.0.1, that are referenced by the schema of `oca_bundle`.
+    - `dependencies` which MAY contain additional `bundle` (sub)schemas as specified by the OCA specification v1.0.1 (and where HCF technologies produce overlays labelled v1.1), that are referenced by the schema of `oca_bundle`.
   - `extensions` which MAY contain community groups with there developed community overlays.
 
     - `a community group` which MUST contain oca_bundles identified by their `capture_base digest`.
@@ -82,7 +82,7 @@ The [ADC implementation can be found on npm](https://www.npmjs.com/package/oca_p
 - Each community overlay MUST include the following key-value items in this specific order (canonicalization):
   - `d` where the community overlay MUST use "d":"_SAID of the correctly canonicalized overlay_".
   - `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where community_name is the name of the community, overlay_name is the name of the overlay, and versioning MUST follow semantic versioning.
-  - Each community overlay MAY include language and if present, MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
+  - Each community overlay MAY include language and if present, MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 3 letter ISO language code.
   - All other content of the overlay follows after these four points and their canonicalization MUST be described in the overlay documentation.
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
 
