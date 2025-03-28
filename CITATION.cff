@@ -1,0 +1,44 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: OCA Package
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - name: Agri-food Data Canada
+    location: '50 Stone Road East, University of Guelph'
+    post-code: N1G 2W1
+    country: CA
+    city: Gueph
+    email: adc@uoguelph.ca
+    website: 'https://agrifooddatacanada.ca'
+    tel: (226) 971-0357
+repository-code: 'https://github.com/agrifooddatacanada/OCA_Composer'
+url: 'https://github.com/agrifooddatacanada/OCA_package_standard'
+abstract: >-
+  Overlays Capture Architecture (OCA) is a standardized
+  language for describing data schemas.
+
+
+  Overlays Capture Architecture is optimized for overlays,
+  where the community can improve the functionalities of a
+  schema to meet their needs while maintaining
+  interoperability.
+
+
+  OCA Package extends the functionality of OCA by specifying
+  how new overlays created by communities can be added to
+  OCA objects without disrupting those overlays that belong
+  to the core specification.
+keywords:
+  - Overlays Capture Architecture
+  - Schema
+  - Agri-food Data Canada
+  - OCA Package
+license: CC-BY-4.0
+commit: d0200d4e006c7c7aeaf932efe862b9cab0d3cc81
+version: '1.0'
+date-released: '2025-03-28'
