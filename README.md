@@ -84,7 +84,7 @@ The [ADC implementation can be found on npm](https://www.npmjs.com/package/oca_p
 - Each community overlay MUST include the following key-value items in this specific order (canonicalization):
   - `d` where the community overlay MUST use "d":"_SAID of the correctly canonicalized overlay_".
   - `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where community_name is the name of the community, overlay_name is the name of the overlay, and versioning MUST follow semantic versioning.
-  - Each community overlay MAY include language and if present, MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 3 letter ISO language code.
+  - Each community overlay MAY include language and if present, MUST reference language using "language":"xxx". The language code may be either the three-letter language code (lower case) or the two-letter language code (lowercase) for a national language or the combined language (lowercase)-country (uppercase) code for a regional language or locale (e.g. fr-CA).
   - All other content of the overlay follows after these four points and their canonicalization MUST be described in the overlay documentation.
 - Communities MUST ensure that their overlay names are unique within their community_name namespace.
 
