@@ -16,7 +16,7 @@ authors:
     email: adc@uoguelph.ca
     website: 'https://agrifooddatacanada.ca'
     tel: (226) 971-0357
-repository-code: 'https://github.com/agrifooddatacanada/OCA_Composer'
+repository-code: 'https://github.com/agrifooddatacanada/OCA_package_standard'
 url: 'https://github.com/agrifooddatacanada/OCA_package_standard'
 abstract: >-
   Overlays Capture Architecture (OCA) is a standardized
