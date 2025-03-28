@@ -74,7 +74,7 @@ The [ADC implementation can be found on npm](https://www.npmjs.com/package/oca_p
     - `a community group` which MUST contain oca_bundles identified by their `capture_base digest`.
     - `oca_bundles` under a community group MUST be ordered lexicographically by the `capture_base digest` and contain the following key-value items in this specific order (canonicalization):
 
-      - `d` where the oca*bundle MUST use "d":"\_SAID value of the entire extension content of the specified oca_bundle*"
+      - `d` where the oca bundle MUST use "d":"_SAID value of the entire extension content of the specified oca_bundle_"
       - `type` where the oca_bundle's extension MUST use "type":"community/community_name/1.0"
       - `overlays` where the community overlays are listed and are sorted lexicographically by their overlay_name.
       - Each overlay within the community grouping MUST be named the same as the overlay_name used in the type field of the overlay.
