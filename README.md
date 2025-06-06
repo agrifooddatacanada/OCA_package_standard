@@ -69,7 +69,7 @@ The [ADC implementation can be found on npm](https://www.npmjs.com/package/oca_p
   - `oca_bundle` which MUST contain two objects:
     - `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
     - `dependencies` which MAY contain additional `bundle` (sub)schemas as specified by the OCA specification v1.0.1 (and where HCF technologies produce overlays labelled v1.1), that are referenced by the schema of `oca_bundle`.
-  - `extensions` which MAY contain community groups with there developed community overlays.
+  - `extensions` which MAY contain community groups with their developed community overlays.
 
     - `a community group` which MUST contain oca_bundles identified by their `capture_base digest`.
     - `oca_bundles` under a community group MUST be ordered lexicographically by the `capture_base digest` and contain the following key-value items in this specific order (canonicalization):
