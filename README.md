@@ -1,4 +1,4 @@
-# OCA Package version 1.0 DRAFT - not yet finalized
+# OCA Package version 1.0.1
 
 Overlays Capture Architecture (OCA) is a standardized language for describing data schemas.
 
