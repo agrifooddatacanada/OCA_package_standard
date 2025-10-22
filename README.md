@@ -96,7 +96,8 @@ An `oca_package` is a canonicalized serialized JSON object that MUST include the
 
      3. `language`: a community overlay MAY include **language key** and if present, MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
 
-     > All other content defined in the community overlay scope follows after these four top-level keys and their canonicalization MUST be described in the community overlay documentation.
+
+     > All other content (properties) defined in the community overlay scope follows after these four top-level keys and their canonicalization MUST be described in the community overlay documentation.
 
    - Communities MUST ensure that their overlay names are unique within their community_name namespace.
 
