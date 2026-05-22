@@ -4,7 +4,7 @@ Overlays Capture Architecture (OCA) is a standardized language for describing da
 
 Overlays Capture Architecture is optimized for overlays, where the community can improve the functionalities of a schema to meet their needs while maintaining interoperability.
 
-OCA Package extends the functionality of OCA by specifying how new overlays created by communities can be added to OCA objects without disrupting those overlays that belong to the core specification. The core specification overlays remain in one object of OCA Package (`oca_bundle`) with a Self-addressing Identifier (SAID) calculated only from in-specification OCA overlays. Additional overlays that are not part of the core specfication are added to a second object (`extensions`) where their addition does not change the calculation of the SAID of the in-specification overlays. This helps with interoperability as different communities may not recognize each others community overlays, but all should recognize the in-specification overlays. The SAIDs of these in-specification overlays will therefore remain consistent across communities.
+OCA Package extends the functionality of OCA by specifying how new overlays created by communities can be added to OCA objects without disrupting those overlays that belong to the core specification. The core specification overlays remain in one object of OCA Package (`oca_bundle`) with a Self-addressing Identifier (SAID) calculated only from in-specification OCA overlays. Additional overlays that are not part of the core specification are added to a second object (`extensions`) where their addition does not change the calculation of the SAID of the in-specification overlays. This helps with interoperability as different communities may not recognize each other's community overlays, but all should recognize the in-specification overlays. The SAIDs of these in-specification overlays will therefore remain consistent across communities.
 
 ![OCA Package conceptual architecture](OCA_package_structure.png)
 
@@ -18,7 +18,7 @@ The OCA specification describes oca_bundle which collects a capture base and ass
 
 ![OCA package](package.png)
 
-Figure: example oca_package structure. The oca_bundle is from the OCA specification and contents are out of scope for OCA Package. Extensions are grouped according to community and bundle_digest target. In this example there is one community (adc) and two schema bundles (blue and orange highlight) which are referenced by two community groupings.
+Figure: example oca_package structure. The oca_bundle is from the OCA specification and contents are out of scope for OCA Package. Extensions are grouped by community and keyed by capture_base digest. The diagram shows one community (`adc`) referencing two schema bundles (blue and orange highlight); multiple capture_base digests may appear under a single community. See [example_package.json](example_package.json) for a minimal single-bundle example.
 
 ### OCA Bundle
 
@@ -39,11 +39,11 @@ The OCA Package governance body MUST maintain the official standard specificatio
 
 ### Governance of OCA Package community names
 
-Communities are free to establish and govern their own namespace within OCA Package. Communities must avoid collision within the namespace and ensure that their names are unique. Communities can request to register their unique name with the OCA Package governance body which lists accepted names here at the end of this specification. Provide the namespace name (no wildcards), source URL and email contact to register. These namespaces are recognized by the OCA Package community as privileged and exclusive to that community. Reserved namespaces include `internal*` where anyone can use names that begin with internal (such as internal-uog) to be used within private systems and `example` which can be used for examples similar to the usage of example.com.
+Communities are free to establish and govern their own namespace within OCA Package. Communities must avoid collision within the namespace and ensure that their names are unique. Communities can request to register their unique name with the OCA Package governance body which lists accepted names here at the end of this specification. Provide the namespace name (no wildcards), source URL and email contact to register. (`internal*` is a reserved prefix pattern for private use and is not a registrable wildcard namespace.) These namespaces are recognized by the OCA Package community as privileged and exclusive to that community. Reserved namespaces include `internal*` where anyone can use names that begin with internal (such as internal-uog) to be used within private systems and `example` which can be used for examples similar to the usage of example.com.
 
 ### Promotion of overlays to official OCA Specification:
 
-HCF maintains the official implementation the OCA specification. To become become part of the official OCA specification any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
+HCF maintains the official implementation of the OCA specification. To become part of the official OCA specification any overlay must go through the [official RFC process](https://github.com/the-human-colossus-foundation/oca-spec/blob/master/README.md).
 
 ## Technical Implementation of an OCA Package
 
@@ -54,7 +54,7 @@ The [ADC implementation can be found on npm](https://www.npmjs.com/package/oca_p
 # OCA Package Design Requirements
 
 1. Community overlays MUST follow OCA Package Syntax Requirements
-2. Documentation for Community overlays MUST be published publically and follow the OCA Package Overlay Documentation Requirements.
+2. Documentation for Community overlays MUST be published publicly and follow the OCA Package Overlay Documentation Requirements.
 3. SAID calculations of the oca_package contents (excluding oca_bundle) follow requirements documented in [CESR Specification](https://weboftrust.github.io/ietf-cesr/draft-ssmith-cesr.html). This non-normative post [documents the process and design choices of the calculations of SAIDs](https://kentbull.com/2024/09/22/keri-series-understanding-self-addressing-identifiers-said/) and includes links to libraries implementing the SAID calculation which can be used by overlay developers. The author Kent Bull is officially contributing documentation to the ongoing work of the [latest CESR specification](https://trustoverip.github.io/tswg-cesr-specification/).
 4. Lexicographical sorting follows the requirements documented in section [3.2.3 Sorting of Object Properties](https://www.rfc-editor.org/rfc/rfc8785#section-3.2.3)
 
@@ -62,52 +62,68 @@ The [ADC implementation can be found on npm](https://www.npmjs.com/package/oca_p
 
 An `oca_package` is a canonicalized serialized JSON object that MUST include the following top-level keys, in this exact order:
 
-1. `d` where the oca_package MUST use "d":"\_SAID value of entire oca_package\". The SAID is calculated from the canonicalized and serialized JSON object.
-2. `type` where the oca_package MUST use "type":"oca_package/1.0". The versioning MUST follow semantic versioning.
+Throughout this specification, angle-bracket or underscore-wrapped text (e.g., `<capture_base digest>`) denotes a placeholder SAID or digest value, not a literal string.
+
+1. `d` where the oca_package MUST use `"d":"<SAID value of entire oca_package>"`. The SAID is calculated from the canonicalized and serialized JSON object.
+2. `type` where the oca_package MUST use `"type":"oca_package/1.0"`. The document title version (1.0.1) identifies this specification release; the JSON `type` field uses its own semantic version. Versioning MUST follow semantic versioning.
 
 3. `oca_bundle` which MUST contain two objects:
 
    - `bundle` which MUST contain overlays and capture_base as specified by the [OCA specification v1.0.1](http://oca.colossi.network/specification/) and be canonicalized and serialized according to that specification.
    - `dependencies` which MAY contain additional `bundle` (sub)schemas as specified by the OCA specification v1.0.1, that are referenced by the schema of `oca_bundle`.
 
-4. `extensions` which MAY contain community group(s) with there developed community overlays.
+4. `extensions` which MAY contain community group(s) with their developed community overlays.
 
-   - `community group(s)` which MUST contain `oca_bundle(s)` they are extending identified by their `capture_base digest`. For example, a community group named `adc` would describe and identify an oca_bundle it extends as the following:
+   - Each community group is keyed by community name (e.g., `adc`) and MUST contain one or more extension bundles keyed by the **capture_base digest** (`d` value) of the oca_bundle being extended. A single community MAY reference multiple capture_base digests when extending more than one schema bundle.
+
+   For example, a community group named `adc` extending one capture_base would look like:
 
    ```json
-   // adc is the community name
-   { "adc": {
-           "_SAID value of the extended oca_bundle": { FIELDS OF THE EXTENSION OVELAY }
+   {
+     "adc": {
+       "<capture_base digest>": {
+         "d": "<SAID of this extension bundle>",
+         "type": "community/adc/extension/1.0",
+         "overlays": {
+           "<overlay_name>": {
+             "d": "<SAID of the overlay>",
+             "type": "community/overlays/adc/<overlay_name>/1.0",
+             "...": "overlay-specific fields"
            }
+         }
+       }
+     }
    }
    ```
+
+   Each extension bundle has its own `d` and `type` (`community/<community_name>/extension/<version>`). Individual overlays within the `overlays` object each have their own `d` and `type` (`community/overlays/<community_name>/<overlay_name>/<version>`).
 
    - Community overlays can contain different key-value items relevant to what the community is extending. Importantly the structure of the community overlay MUST always be consistent unless a new version emerges.
    - A community overlay MUST be canonicalized and serialized according to the OCA Package Design Requirements.
 
-   - In addition to the above, each community overlay MUST include always include required and/or optional top-level keys, in the below exact order:
+   - In addition to the above, each individual overlay within an extension bundle's `overlays` object MUST always include the following required and/or optional top-level keys, in the below exact order:
 
      **REQUIRED TOP-LEVEL KEYS ON EVERY EXTENSION OVERLAY:**
 
-     1. `d` where the community overlay MUST use "d":"_SAID of the correctly canonicalized overlay_".
-     2. `type` where the community overlay MUST use type= "community/overlays/community_name/overlay_name/vX.X" where `community_name` (i.e., `adc`) is the name of the community, `overlay_name` (i.e., `ordering`) is the name of the overlay, and versioning MUST follow semantic versioning (i.e., `1.0` etc.). Putting it all together, the `type` would look like "community/overlays/adc/ordering/v1.0".
+     1. `d` where the community overlay MUST use `"d":"<SAID of the correctly canonicalized overlay>"`.
+     2. `type` where the community overlay MUST use `"type":"community/overlays/<community_name>/<overlay_name>/<version>"` where `community_name` (i.e., `adc`) is the name of the community, `overlay_name` (i.e., `ordering`) is the name of the overlay, and versioning MUST follow semantic versioning (i.e., `1.0` etc.). Putting it all together, the `type` would look like `"community/overlays/adc/ordering/1.0"`.
 
      **OPTIONAL TOP-LEVEL KEYS OF AN EXTENSION OVERLAY:**
 
-     3. `language`: a community overlay MAY include **language key** and if present, MUST reference language using "language":"xxx" if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
+     3. `language`: a community overlay MAY include a **language** key and if present, MUST reference language using `"language":"xxx"` if they are specific to languages where xxx is the 2 or 3 letter ISO language code.
 
 
-     > All other content (properties) defined in the community overlay scope follows after these four top-level keys and their canonicalization MUST be described in the community overlay documentation.
+     > All other content (properties) defined in the community overlay scope follows after these top-level keys and their canonicalization MUST be described in the community overlay documentation.
 
    - Communities MUST ensure that their overlay names are unique within their community_name namespace.
 
 ## OCA Package Overlay Documentation Requirements
 
-This section outlines the different sections of published documentation for each overlay. Each header MUST be present in a publically documented overlay description and if a section is left empty include the phrase "Intentionally left empty" to indicate it is not a mistake.
+This section outlines the different sections of published documentation for each overlay. Each header MUST be present in a publicly documented overlay description and if a section is left empty include the phrase "Intentionally left empty" to indicate it is not a mistake.
 
 **Title**: _overlay name_ by _community name_ - v _version_ (e.g. Ordering by ADC - v1.0)
 
-**Community grouping**: _"community/community_name/extension/vX.X" where community_name is the name of the community and versioning MUST follow semantic versioning_.
+**Community grouping**: _`"community/<community_name>/extension/<version>"` — the `type` of the extension bundle that contains the overlay (not the individual overlay's `type`). Versioning MUST follow semantic versioning._
 
 **Authors**: _overlay author names_
 
